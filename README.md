@@ -52,9 +52,6 @@ This is an intelligent document analysis system that allows users to upload PDF 
 ├── app.py                    # Main Streamlit application
 ├── .env                      # Environment configuration
 ├── requirements.txt          # Python dependencies
-├── check_ocr.py             # OCR installation verification
-├── test_ocr_only.py         # Direct OCR testing utility
-├── test_pdf_extraction.py   # PDF extraction testing
 ├── src/
 │   ├── config.py            # Configuration settings
 │   ├── pdf_parser.py        # PDF text extraction (PyMuPDF + OCR fallback)
