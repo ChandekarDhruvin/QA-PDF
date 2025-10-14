@@ -72,7 +72,7 @@ This is an intelligent document analysis system that allows users to upload PDF 
 ## 🚀 Quick Start Guide
 
 ### Prerequisites
-- Python 3.8 or higher
+- Python 3.8 or higher (used Python 3.12.7)
 - Groq API key (free at [console.groq.com](https://console.groq.com))
 
 ### 1. Clone and Setup
@@ -208,71 +208,6 @@ Bot: "I cannot find this information in the uploaded document."
 4. Upload a different PDF
 5. Confirm previous conversation is cleared
 
-### OCR Testing
-```bash
-# Test OCR functionality directly
-python test_ocr_only.py
-
-# Check OCR installation
-python check_ocr.py
-```
-
-### Advanced Testing
-```bash
-# Test with different document types
-- Research papers (text-based)
-- Scanned documents (OCR required)
-- Technical manuals with diagrams
-- Business reports
-- Educational materials
-
-# Test edge cases
-- Very large PDFs
-- PDFs with images/tables
-- Low-quality scanned documents
-- Multiple file uploads
-- General knowledge questions
-```
-
-## 🔧 Troubleshooting
-
-### Common Issues and Solutions
-
-#### **"No text could be extracted"**
-**Symptoms:** PDF shows as processed but no text is found
-**Solutions:**
-1. Check the detailed extraction results in the expandable section
-2. Ensure the PDF contains readable text or clear images
-3. For scanned documents, verify image quality is good
-4. Try a different PDF to test the system
-
-#### **OCR is slow or not working**
-**Symptoms:** OCR processing takes very long or fails
-**Solutions:**
-1. **First run**: OCR models download automatically (~150MB) - be patient
-2. **Subsequent runs**: Should be faster with cached models
-3. **Memory issues**: Close other applications if system is low on RAM
-4. **Network issues**: Ensure internet connection for initial model download
-
-#### **"Processing document..." never completes**
-**Symptoms:** Upload gets stuck in processing
-**Solutions:**
-1. Check file size - very large PDFs may take time
-2. Refresh the page and try again
-3. Try a smaller PDF file first
-4. Check console for error messages
-
-#### **LangChain deprecation warnings**
-**Symptoms:** Warning messages in console
-**Solutions:**
-- These are harmless warnings and don't affect functionality
-- The system handles both old and new LangChain versions automatically
-
-### Performance Tips
-- **Smaller files process faster** - Consider splitting very large PDFs
-- **Text-based PDFs are faster** than scanned documents
-- **Good image quality** improves OCR accuracy and speed
-- **Close other applications** to free up system resources during OCR
 
 ## 🔍 Key Components Explained
 
