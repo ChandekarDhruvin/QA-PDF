@@ -1,0 +1,16 @@
+streamlit
+langchain>=0.1.40
+langchain-community
+openai
+faiss-cpu
+python-dotenv
+pymupdf
+sentence-transformers
+groq
+tiktoken
+langchain_huggingface
+paddlepaddle
+paddleocr
+Pillow
+pdf2image
+scikit-image>=0.25.2

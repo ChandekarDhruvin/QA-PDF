@@ -1,0 +1,29 @@
+# Environment variables and secrets
+.env
+
+
+# Python
+__pycache__/
+# Virtual environments
+venv/
+
+# Data and uploads (often large files)
+data/uploads/
+data/faiss_index/
+
+
+# Vector store indices
+*.index
+*.faiss
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+
