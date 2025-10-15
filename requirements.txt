@@ -8,7 +8,7 @@ pymupdf
 sentence-transformers
 groq
 tiktoken
-langchain_huggingface
+langchain-huggingface
 paddlepaddle
 paddleocr
 Pillow
