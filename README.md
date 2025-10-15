@@ -104,6 +104,58 @@ The system includes **PaddleOCR** for automatic fallback when PDFs don't have ex
 
 **First Run:** The system will download OCR models (~150MB) automatically. Subsequent runs will be faster as models are cached locally.
 
+## ⚙️ Windows Long Path Error Fix (for PaddleOCR Installation)
+
+If you encounter this error during installation:
+
+```
+ERROR: Could not install packages due to an OSError: [Errno 2] No such file or directory ...
+HINT: This error might have occurred since this system does not have Windows Long Path support enabled.
+```
+
+It’s a **Windows system limitation**, not a code issue.
+By default, Windows restricts file paths to 260 characters — libraries like **PaddleOCR**, **PaddleX**, and **ModelScope** often exceed this length.
+Follow the steps below to permanently fix it 👇
+
+### 🩵 Option 1 — Enable Long Paths via PowerShell (Recommended)
+
+Run this in **PowerShell as Administrator**:
+
+```powershell
+Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" -Name "LongPathsEnabled" -Value 1
+```
+
+Then **restart your PC** and reinstall:
+
+```bash
+pip install paddleocr paddlex modelscope --upgrade --no-cache-dir
+```
+
+### 🩶 Option 2 — Edit Registry (Works on Windows Home too)
+
+1. Press **Win + R**, type `regedit`, and press **Enter**
+2. Navigate to:
+
+   ```
+   HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem
+   ```
+3. Find or create a **DWORD (32-bit) Value** named:
+
+   ```
+   LongPathsEnabled
+   ```
+4. Double-click it and set its **Value data** to `1`
+5. Click **OK**, close the Registry Editor
+6. **Restart your computer**
+7. Reinstall:
+
+   ```bash
+   pip install paddleocr paddlex modelscope --upgrade --no-cache-dir
+   ```
+
+💡 **Tip:** Once enabled, you’ll never face this issue again — PaddleOCR and similar large dependencies will install smoothly.
+
+---
 ### 4. Configure Environment
 Create or update `.env` file with your settings:
 ```env
@@ -149,6 +201,7 @@ The system uses a **two-step extraction process**:
    - Shows detailed progress: page conversion, OCR processing, confidence scoring
    - Takes longer but handles scanned documents and image-only PDFs
 
+⚠️ Currently, standard text extraction works for text-based PDFs. OCR fallback for scanned or image-only PDFs is under development and not yet functional.
 ### Example Interactions
 
 #### ✅ **Successful Document Questions**
